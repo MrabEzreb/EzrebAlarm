@@ -3,12 +3,9 @@
  */
 package alarmframe;
 
-import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics2D;
 
-import sun.font.Font2D;
-import sun.font.FontScaler;
 import aleksPack10.tools.Colors;
 
 /**
