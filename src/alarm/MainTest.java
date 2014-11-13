@@ -11,15 +11,10 @@ import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.TimeZone;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
-
-import sun.util.resources.TimeZoneNames_en;
-import alarmframe.AlarmWindow;
-import aleksPack10.tools.Colors;
 
 /**
  * @author MrabEzreb
@@ -60,20 +55,26 @@ public class MainTest {
 		}
 		while(isClosed==false) {
 			Thread.sleep(1000);
-			System.out.println(TimeZone.getDefault());
-			Calendar.getInstance(TimeZone.getDefault());
-			int hour = Calendar.getInstance(TimeZone.getDefault()).HOUR_OF_DAY;
-			int min = Calendar.getInstance(TimeZone.getDefault()).MINUTE;
-			int sec = Calendar.getInstance(TimeZone.getDefault()).SECOND;
-			System.out.println(hour);
-			System.out.println(min);
-			System.out.println(sec);
-			if(hour==9&&min==44) {
+			//System.out.println(TimeZone.getDefault());
+			//Calendar.getInstance(TimeZone.getDefault());
+			//int hour = Calendar.getInstance(TimeZone.getDefault()).HOUR_OF_DAY;
+			//int min = Calendar.getInstance(TimeZone.getDefault()).MINUTE;
+			//int sec = Calendar.getInstance(TimeZone.getDefault()).SECOND;
+			Date d = new Date();
+			DateFormat f = new SimpleDateFormat("HHmmss");
+			String fo = f.format(d);
+			System.out.print(fo);
+			if(fo.equals("094700")) {
+				System.out.print("It Works!");
+			}
+			//System.out.println(min);
+			//System.out.println(sec);
+			/*if(hour==9&&min==44) {
 				AlarmWindow win = new AlarmWindow("Lunch is over!");
 				System.out.println("Alarm Is Going Off!");
 				win.getWin();
 				System.out.println(Colors.orange5);
-			}
+			}*/
 		}
 		if(isClosed==true) {
 			tray.remove(tray2);
